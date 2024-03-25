@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 app.use(express.json());
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+require('dotenv').config()
+
 
 const mongoUrl =
   "mongodb+srv://rajatpandit06655:admin@cluster0.qohgyhp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" ;
@@ -112,7 +114,7 @@ app.post("/userdata", async (req, res) => {
     return res.send({ error: error });
   }
 });
-
-app.listen(5001, () => {
+const PORT=process.env;
+app.listen(PORT, () => {
   console.log("Node js server started.");
 });
